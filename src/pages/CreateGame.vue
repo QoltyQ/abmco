@@ -46,7 +46,7 @@
     </q-form>
   </div>
 
-  <div v-if="step<3" class="questions bg-secondary shadow-2">
+  <div v-if="step === 2" class="questions bg-secondary shadow-2">
 
     <div class="questions-header bg-white full-width">
       <h3 class="q-ma-none text-h4 text-weight-thin">Questions</h3>
@@ -295,19 +295,8 @@ export default {
     }
   },
   methods: {
-    createGame(){
-      ApiService.post('game/create-game', {
-        "game_title": this.gameTitle,
-        "subject_type": this.subject,
-        "tags": this.tags,
-      })
-      .then(({data}) => {
-        this.step = 2
-        this.simpleQuestion.game_id = data._id
-      })
-      .catch(
-        () => this.triggerNegative()
-      )
+    createGame(){        
+      this.step = 2
     },
     removeAt(idx) {
       this.questions.splice(idx, 1);

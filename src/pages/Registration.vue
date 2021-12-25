@@ -6,7 +6,7 @@
         <q-card
           class="login-form"
           v-bind:style="
-            $q.platform.is.mobile ? { width: '80%' } : { width: '30%' }
+            $q.platform.is.mobile ? { width: '100%' } : { width: '30%' }
           "
         >
           <q-card-section>
@@ -19,14 +19,14 @@
             </q-avatar>
             <div class="row no-wrap items-center">
               <div class="col text-h6 ellipsis">
-                Log in to QUIZDAR
+                Register to QUIZDAR
               </div>
             </div>
           </q-card-section>
           <q-card-section>
             <q-form class="q-gutter-md">
               <q-input filled v-model="username" label="Username" lazy-rules />
-
+              <q-input filled v-model="email" label="Email" lazy-rules />
               <q-input
                 type="password"
                 filled
@@ -34,6 +34,7 @@
                 label="Password"
                 lazy-rules
               />
+              <q-toggle v-model="accept" label="I accept the license and terms" />
 
               <div>
                 <q-btn
@@ -41,8 +42,16 @@
                   to="/profile"
                   type="button"
                   color="primary"
+                  @click="loginNotify"
                 />
 
+                <a
+                  style="font-size: 30px;"
+                  class="float-right"
+                  target="_blank"
+                  title="Donate"
+                  ><i class="fas fa-heart" style="color: #eb5daa"></i
+                ></a>
               </div>
             </q-form>
           </q-card-section>
@@ -57,7 +66,9 @@
     data() {
         return {
             username: 'admin',
-            password: 'Admin@CRM'
+            email: 'admin@gmail.com',
+            password: 'Admin@CRM',
+            accept: false
         }
     },
     methods: {

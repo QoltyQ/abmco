@@ -8,7 +8,7 @@
       </div>
       <q-card class="join">
         <q-input class="gamepin" outlined v-model="text" label="Game Pin" />
-        <q-btn class="btn" text-color="black" label="Standard" />
+        <q-btn class="btn" text-color="black" label="Enter" />
       </q-card>
     </div>
   </div>
@@ -52,7 +52,7 @@ export default {
     align-items: center;
     height: 100vh;
     width: 100%;
-    background: coral;
+    background-color: var(--q-secondary);
   }
   
   .main{
@@ -98,5 +98,7 @@ export default {
 
   .quizdar{
     font-size: 30px;
+        font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
   }
 </style>

@@ -3,14 +3,19 @@ const routes = [{
         component: () =>
             import ('layouts/MainLayout.vue'),
         children: [{
-                path: '',
+                path: '/gameslist',
                 component: () =>
                     import ('pages/GamesList.vue')
             },
             {
-                path: '/authorization',
+                path: '/login',
                 component: () =>
                     import ('pages/Authorization.vue')
+            },
+            {
+                path: '/register',
+                component: () =>
+                    import ('pages/Registration.vue')
             },
             {
                 path: '/create_game',
@@ -28,9 +33,24 @@ const routes = [{
                     import ('pages/Game.vue')
             },
             {
-                path: '/signin',
+                path: '/profile',
                 component: () =>
-                    import ('pages/SignIn.vue')
+                    import ('pages/profile.vue')
+            },
+            {
+                path: '/table',
+                component: () =>
+                    import ('pages/table.vue')
+            },
+            {
+                path: '/price',
+                component: () =>
+                    import ('pages/price.vue')
+            },
+            {
+                path: '/',
+                component: () =>
+                    import ('pages/landing.vue')
             }
         ]
     },
